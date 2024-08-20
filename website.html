@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brian Kitonyi Mutuku - Portfolio</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            background: linear-gradient(135deg, #1e1e1e, #0f0f0f);
+            scroll-behavior: smooth;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0066ff, #00cc09);
+            color: #fff;
+            padding: 2em 0;
+            text-align: center;
+            border-bottom: 5px solid #003399;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            animation: slideIn 1.5s ease-in-out;
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin: 0;
+        }
+
+        nav {
+            background: #000;
+            color: #fff;
+            padding: 1em 0;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #ffcc00;
+        }
+
+        main {
+            padding: 2em;
+            max-width: 900px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        section {
+            margin-bottom: 2em;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        section h2 {
+            background: linear-gradient(135deg, #aa0166, #ffcc00);
+            color: #fff;
+            padding: 0.5em;
+            border-radius: 10px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        section h3 {
+            color: #00cc79;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        img:hover {
+            transform: scale(1.1);
+        }
+
+        footer {
+            background: linear-gradient(135deg, #0066ff, #00cc99);
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            border-top: 5px solid #003399;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul li {
+                display: block;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Brian Kitonyi Mutuku</h1>
+        <p>BBIT Student & Aspiring Professional</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#achievements">Achievements</a></li>
+            <li><a href="#qualifications">Qualifications</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#additional">Additional Info</a></li>
+            <li><a href="#hobbies">Hobbies</a></li>
+            <li><a href="#videos">Video Presentations</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="about">
+            <h2>About Me</h2>
+            <img src="C:\Users\Administrator\Downloads\IMG_20230115_142913_996.jpg" alt="Brian Kitonyi Mutuku">
+            <p>Welcome to my portfolio! I am Brian Kitonyi Mutuku, a dedicated student currently pursuing a Bachelor of Business and Information Technology (BBIT) at Dedan Kimathi University of Technology. My journey in this field has equipped me with a solid foundation in both business and technology, and I am passionate about applying this knowledge to real-world problems.</p>
+            <p>Beyond academics, I pride myself on being a proactive learner and a team player. My experiences have shaped me into a responsible individual who is always ready to take on new challenges and contribute effectively to any team or project.</p>
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+            <h3>Dedan Kimathi University of Technology, NYERI</h3>
+            <p>Bachelor of Business and Information Technology (BBIT), July 2020 – present</p>
+            <p>At Dedan Kimathi University, I have engaged in various projects and coursework that bridge the gap between business acumen and technological proficiency. This comprehensive program has provided me with a broad perspective on how technology can drive business innovation.</p>
+
+            <h3>Kangema High School, Muranga</h3>
+            <p>February 2016 – November 2019</p>
+            <p>During my time at Kangema High School, I excelled in subjects crucial for my future career, such as Mathematics and Business Studies. My academic performance reflected a strong grasp of analytical and critical thinking skills.</p>
+            <ul>
+                <li>English: B-(Minus)</li>
+                <li>Kiswahili: B(Plain)</li>
+                <li>Mathematics: B+(Plus)</li>
+                <li>Physics: C+(Plus)</li>
+                <li>Chemistry: B-(Minus)</li>
+                <li>Geography: B+(Plus)</li>
+                <li>C.R.E: B+(Plus)</li>
+                <li>Business Studies: A-(Minus)</li>
+            </ul>
+
+            <h3>St. John's Primary School, Nairobi</h3>
+            <p>2008 – November 2015, Marks: 369</p>
+            <p>My primary education laid the groundwork for my academic journey, providing me with essential skills and a strong foundation in various subjects.</p>
+        </section>
+
+        <section id="achievements">
+            <h2>Achievements</h2>
+            <p>One of my notable achievements is completing the Google Africa Developer Scholarship in November 2021. This accomplishment involved an intensive study program in Cloud Computing, culminating in a certificate that highlights my ability to work with modern cloud technologies.</p>
+            <p>This experience has not only expanded my technical skills but also demonstrated my commitment to continuous learning and professional growth.</p>
+        </section>
+
+        <section id="qualifications">
+            <h2>Qualifications</h2>
+            <p>Certificate in Cloud Computing, awarded through the Google Africa Developer Scholarship program. This certification has provided me with a robust understanding of cloud infrastructure and services, preparing me for roles in cloud technology and IT support.</p>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <p>I have developed a diverse skill set that blends technical expertise with soft skills, enabling me to tackle complex challenges and contribute effectively to teams. My skills include:</p>
+            <ul>
+                <li>Data Analysis using Microsoft Excel</li>
+                <li>Web Programming (HTML, CSS, JavaScript)</li>
+                <li>Cloud Computing (AWS, Google Cloud)</li>
+                <li>Effective Communication</li>
+                <li>Leadership and Team Management</li>
+                <li>Critical Thinking and Problem-Solving</li>
+                <li>Time Management and Organization</li>
+                <li>General Computer Literacy</li>
+            </ul>
+        </section>
+
+        <section id="additional">
+            <h2>Additional Information</h2>
+            <p>I am an active member of the Dekut Art Club, where I have honed my artistic talents, particularly in digital and traditional drawing. This club has allowed me to express my creativity and collaborate with like-minded individuals.</p>
+            <p>In addition to my artistic pursuits, I have participated in various community service initiatives, reflecting my commitment to giving back to society and making a positive impact.</p>
+        </section>
+
+        <section id="hobbies">
+            <h2>Hobbies</h2>
+            <p>My hobbies include playing football, reading, and traveling. These activities help me maintain a well-rounded lifestyle, balancing my academic and professional pursuits with relaxation and personal growth.</p>
+        </section>
+
+        <section id="autobiography">
+            <h2>Autobiography</h2>
+            <p>I have written an autobiography that delves into my personal journey, experiences, and the lessons I've learned along the way. You can read it by clicking the link below:</p>
+            <a href="https://docs.google.com/document/d/1_Se_ZwqZrXiKBVvfUON1j7iKRVUyDUe8/edit?usp=drive_web&ouid=114026384910873561169&rtpof=true" download="Brian_Kitonyi_Autobiography.pdf">Download My Autobiography (PDF)</a>
+        </section>
+        
+        <section id="presentation">
+            <h2>Autobiography Presentation</h2>
+            <p>This PowerPoint presentation provides a visual and engaging summary of my autobiography. Feel free to view or download it:</p>
+            <a href="https://docs.google.com/presentation/d/1O5iLN_j2qfq8hqZ5zDqW6t0pu6Hy3qeu/edit#slide=id.p1" download="Brian_Kitonyi_Autobiography_Presentation.pptx">Download Autobiography Presentation (PPTX)</a>
+        </section>
+        
+        <section id="cv">
+            <h2>Curriculum Vitae (CV)</h2>
+            <p>My CVs are available in different languages to suit your needs. You can download them below:</p>
+            <ul>
+                <li><a href="https://docs.google.com/document/d/1j6AnPyfXPPsvENwcgM_fFiInX0UJgRbw/edit" download="Brian_Kitonyi_CV_English.pdf">Download CV in English (PDF)</a></li>
+                <li><a href="https://docs.google.com/document/d/1nRwqty4Pe0Ws9yvRgt8O6dHYU2ZTk9_H/edit" download="Brian_Kitonyi_CV_Swahili.pdf">Download CV in Swahili (PDF)</a></li>
+                <li><a href="https://docs.google.com/document/d/1j86aMpy3jW2rQsN0AYaSXiLrrT9qgHJR/edit" download="Brian_Kitonyi_CV_Native_Language.pdf">Download CV in Native Language (PDF)</a></li>
+            </ul>
+        </section>
+        
+
+        <section id="videos">
+            <h2>Video Presentations</h2>
+
+            <div id="traditional-storytelling">
+                <h3>1. Role of Traditional Storytelling</h3>
+                <h3>Video</h3>
+                <a  href="https://drive.google.com/file/d/11QV9b6arLh76q5-PAkJm52x7aqvtSV53/view?usp=drive_link" view >video</a>
+                <h3>PowerPoint</h3>
+                <a href="https://docs.google.com/presentation/d/1sbpiZu3icEGCGcs9Po1kPskfOx1XtUVQ/edit#slide=id.p1" download>Download PowerPoint</a>
+                <section class="abstract">
+                    <h3>Abstract:</h3>
+                    <a href="https://docs.google.com/document/d/1PBN49GvDybNYcMx2qRwG0RUKvCpE2DhY/edit" download>Download Abstract</a>
+                </section>
+            </div>
+
+            <div id="climate-change">
+                <h3>2. Addressing Climate Change</h3>
+                <h3>Video</h3>
+                    <a href="https://drive.google.com/file/d/1tBYgGD1rudN0TWgRtBG9VjIGA2-RZ3CJ/view?usp=drive_link"download>video</a>
+                <h3>PowerPoint</h3>
+                <a href="https://docs.google.com/presentation/d/1R8zOKVttcAGjXGTNfeVBeHmnBES0tYxu/edit?rtpof=true" download>Download PowerPoint</a>
+                <section class="abstract">
+                    <h3>Abstract:</h3>
+                    <a href="https://docs.google.com/document/d/1Sg7FSOVrn6A7n7xyB51YYu5diT-qovot/edit" download>Download Abstract</a>
+                </section>
+            </div>
+
+            <div id="blockchain-trust">
+                <h3>3. Revolutionizing Trust: The Power of Blockchain</h3>
+                <h3>Video</h3>
+                    <a href="https://drive.google.com/file/d/17FvwWpwSm-AU4WphrmhZOf-EvtcaG6rK/view?usp=drive_link" download>video</a>
+                    <h3>PowerPoint</h3>
+                <a href="https://docs.google.com/presentation/d/1R8zOKVttcAGjXGTNfeVBeHmnBES0tYxu/edit#slide=id.p1" download>Download PowerPoint</a>
+                <section class="abstract">
+                    <h3>Abstract:</h3>
+                    <a href="https://docs.google.com/document/d/1PBN49GvDybNYcMx2qRwG0RUKvCpE2DhY/edit" download>Download Abstract</a>
+                </section>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Brian Kitonyi Mutuku. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
