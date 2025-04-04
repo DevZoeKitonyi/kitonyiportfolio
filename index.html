@@ -5,161 +5,673 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brian Kitonyi Mutuku - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.6;
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        
+        :root {
+            --primary-color: #333333;
+            --secondary-color: #00cc99;
+            --accent-color: #ffcc00;
+            --dark-bg: #121212;
+            --card-bg: #1e1e1e;
+            --text-light: #ffffff;
+            --text-muted: #aaaaaa;
+            --header-gradient: linear-gradient(135deg, #333333, #1a1a1a);
+            --section-gradient: linear-gradient(135deg, #aa0166, #ffcc00);
+            --icon-color-1: #FF6B6B;
+            --icon-color-2: #4ECDC4;
+            --icon-color-3: #45B7D1;
+            --icon-color-4: #FFA07A;
+            --icon-color-5: #98D8C8;
+        }
+        
+        * {
             margin: 0;
             padding: 0;
-            color: #fff;
-            background: linear-gradient(135deg, #1e1e1e, #0f0f0f);
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-light);
+            background-color: var(--dark-bg);
+            background-image: 
+                radial-gradient(at 10% 10%, rgba(51, 51, 51, 0.1) 0px, transparent 50%),
+                radial-gradient(at 90% 90%, rgba(0, 204, 153, 0.1) 0px, transparent 50%);
             scroll-behavior: smooth;
         }
-
+        
         header {
-            background: linear-gradient(135deg, #0066ff, #00cc09);
-            color: #fff;
-            padding: 2em 0;
+            background: var(--header-gradient);
+            padding: 3em 0;
             text-align: center;
-            border-bottom: 5px solid #003399;
-            animation: fadeIn 1.5s ease-in-out;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
-
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.3;
+        }
+        
         header h1 {
             margin: 0;
-            font-size: 2.5em;
-            animation: slideIn 1.5s ease-in-out;
+            font-size: 3em;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            animation: fadeInDown 1s ease;
+            color: var(--text-light);
         }
-
+        
         header p {
+            font-size: 1.4em;
+            margin: 10px 0 0;
+            opacity: 0.9;
+            font-weight: 300;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 30px;
+            animation: fadeIn 1.5s ease;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .contact-item i {
             font-size: 1.2em;
-            margin: 0;
         }
-
+        
         nav {
-            background: #000;
-            color: #fff;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
             padding: 1em 0;
-            animation: fadeIn 1.5s ease-in-out;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
         }
-
+        
+        nav.scrolled {
+            padding: 0.7em 0;
+            background-color: rgba(0, 0, 0, 0.95);
+        }
+        
         nav ul {
             list-style: none;
             padding: 0;
             margin: 0;
             text-align: center;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
         }
-
+        
         nav ul li {
-            display: inline;
             margin: 0 15px;
         }
-
+        
         nav ul li a {
-            color: #fff;
+            color: var(--text-light);
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 500;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--accent-color);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+        
+        nav ul li a:hover::after {
+            width: 80%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
             transition: color 0.3s ease;
         }
-
-        nav ul li a:hover {
-            color: #ffcc00;
+        
+        .mobile-menu-btn:hover {
+            color: var(--accent-color);
         }
-
+        
         main {
-            padding: 2em;
-            max-width: 900px;
-            margin: auto;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            animation: fadeIn 2s ease-in-out;
+            max-width: 1200px;
+            margin: 2em auto 6em;
+            padding: 0 20px;
         }
-
+        
         section {
-            margin-bottom: 2em;
-            animation: float 6s ease-in-out infinite;
+            margin-bottom: 3em;
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
-
+        
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--header-gradient);
+        }
+        
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+        
         section h2 {
-            background: linear-gradient(135deg, #aa0166, #ffcc00);
-            color: #fff;
-            padding: 0.5em;
-            border-radius: 10px;
-            animation: fadeIn 1.5s ease-in-out;
+            background: var(--section-gradient);
+            color: var(--text-light);
+            display: inline-block;
+            padding: 0.5em 1em;
+            border-radius: 50px;
+            margin-bottom: 1em;
+            font-size: 1.5em;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
-
+        
         section h3 {
-            color: #00cc79;
+            color: var(--secondary-color);
+            margin-top: 1.5em;
+            margin-bottom: 0.5em;
+            font-weight: 600;
         }
-
+        
+        p {
+            margin-bottom: 1em;
+            color: var(--text-light);
+            opacity: 0.9;
+        }
+        
         ul {
             padding-left: 20px;
+            margin-bottom: 1em;
         }
-
-        img {
-            max-width: 100%;
-            height: auto;
+        
+        ul li {
+            margin-bottom: 0.5em;
+            position: relative;
+        }
+        
+        ul li::before {
+            content: '✓';
+            color: var(--secondary-color);
+            position: absolute;
+            left: -20px;
+        }
+        
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 2em;
+        }
+        
+        .skill-card {
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .skill-card i {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+        
+        /* Individual icon colors */
+        .skill-card i.fa-chart-bar { color: var(--icon-color-1); }
+        .skill-card i.fa-code { color: var(--icon-color-2); }
+        .skill-card i.fa-comments { color: var(--icon-color-3); }
+        .skill-card i.fa-users { color: var(--icon-color-4); }
+        .skill-card i.fa-lightbulb { color: var(--icon-color-5); }
+        .skill-card i.fa-clock { color: var(--icon-color-1); }
+        .skill-card i.fa-certificate { color: var(--icon-color-2); }
+        .skill-card i.fa-award { color: var(--icon-color-3); }
+        .skill-card i.fa-palette { color: var(--icon-color-4); }
+        .skill-card i.fa-futbol { color: var(--icon-color-5); }
+        .skill-card i.fa-book { color: var(--icon-color-1); }
+        .skill-card i.fa-plane { color: var(--icon-color-2); }
+        .skill-card i.fa-home { color: var(--icon-color-3); }
+        .skill-card i.fa-shield-alt { color: var(--icon-color-4); }
+        .skill-card i.fa-school { color: var(--icon-color-5); }
+        .skill-card i.fa-robot { color: var(--icon-color-1); }
+        .skill-card i.fa-graduation-cap { color: var(--icon-color-2); }
+        
+        .skill-card h4 {
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+        
+        .skill-card p {
+            font-size: 0.9em;
+            color: var(--text-muted);
+        }
+        
+        .education-timeline {
+            position: relative;
+            padding-left: 30px;
+            margin-top: 2em;
+        }
+        
+        .education-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+        }
+        
+        .education-item {
+            position: relative;
+            margin-bottom: 2em;
+            padding-bottom: 1em;
+        }
+        
+        .education-item::before {
+            content: '';
+            position: absolute;
+            left: -34px;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            border: 3px solid var(--dark-bg);
+        }
+        
+        .education-item h3 {
+            margin-top: 0;
+        }
+        
+        .education-item .duration {
+            font-size: 0.9em;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+        
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 2em;
+        }
+        
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
             transition: transform 0.3s ease;
         }
-
-        img:hover {
-            transform: scale(1.1);
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
         }
-
+        
+        .project-image {
+            height: 180px;
+            background: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-image i {
+            font-size: 3em;
+            color: var(--text-light);
+            opacity: 0.8;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            z-index: 2;
+        }
+        
+        .project-card:hover .project-image i {
+            transform: scale(1.2);
+            opacity: 1;
+        }
+        
+        .project-info {
+            padding: 20px;
+        }
+        
+        .project-info h3 {
+            margin-top: 0;
+            font-size: 1.2em;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .project-link {
+            padding: 8px 15px;
+            background: rgba(51, 51, 51, 0.2);
+            color: var(--text-light);
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9em;
+            transition: background 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .project-link:hover {
+            background: rgba(51, 51, 51, 0.4);
+        }
+        
+        /* Testimonial Carousel */
+        .testimonials {
+            margin-top: 3em;
+        }
+        
+        .carousel {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .carousel-item {
+            min-width: 100%;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            box-sizing: border-box;
+        }
+        
+        .carousel-item p {
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        
+        .carousel-item .author {
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
+        
+        .carousel-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 15px;
+        }
+        
+        .carousel-control {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .carousel-control:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .carousel-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .carousel-indicator.active {
+            background: var(--secondary-color);
+            transform: scale(1.2);
+        }
+        
         footer {
-            background: linear-gradient(135deg, #0066ff, #00cc99);
-            color: #fff;
+            background: var(--header-gradient);
+            color: var(--text-light);
             text-align: center;
-            padding: 1em 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            border-top: 5px solid #003399;
-            animation: fadeIn 1.5s ease-in-out;
+            padding: 2em 0;
+            position: relative;
+            margin-top: 4em;
         }
-
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.2;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .social-link i {
+            color: var(--text-light);
+            font-size: 1.2em;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 99;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: var(--accent-color);
+            transform: translateY(-5px);
+        }
+        
+        /* Document download links styling */
+        .document-link {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px;
+            background: rgba(51, 51, 51, 0.2);
+            color: var(--text-light);
+            text-decoration: none;
+            border-radius: 4px;
+            margin: 5px 0;
+            transition: all 0.3s ease;
+            gap: 8px;
+        }
+        
+        .document-link:hover {
+            background: rgba(51, 51, 51, 0.4);
+            transform: translateX(5px);
+        }
+        
+        .document-link i {
+            font-size: 1.2em;
+        }
+        
+        /* Animations */
         @keyframes fadeIn {
             from {
                 opacity: 0;
             }
-
             to {
                 opacity: 1;
             }
         }
-
-        @keyframes slideIn {
+        
+        @keyframes fadeInUp {
             from {
-                transform: translateY(-50px);
                 opacity: 0;
+                transform: translateY(20px);
             }
-
             to {
-                transform: translateY(0);
                 opacity: 1;
-            }
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
-
-            100% {
                 transform: translateY(0);
             }
         }
-
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive styles */
         @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2em;
+            }
+            
+            header p {
+                font-size: 1.1em;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            nav {
+                padding: 0.5em;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                display: none;
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
             nav ul li {
-                display: block;
                 margin: 10px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                right: 20px;
+                top: 15px;
+            }
+            
+            .skill-grid, .projects-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -169,158 +681,415 @@
     <header>
         <h1>Brian Kitonyi Mutuku</h1>
         <p>Tech Savvy & Aspiring Professional</p>
+        <div class="contact-info">
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>brian.kitonyi@gmail</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <span>+254 743884140</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Nyeri, Kenya</span>
+            </div>
+        </div>
     </header>
-    <nav>
-        <ul>
+    
+    <nav id="navbar">
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+        </button>
+        <ul id="navMenu">
             <li><a href="#about">About Me</a></li>
-            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
             <li><a href="#achievements">Achievements</a></li>
             <li><a href="#qualifications">Qualifications</a></li>
-            <li><a href="#skills">Skills</a></li>
             <li><a href="#additional">Additional Info</a></li>
+            <li><a href="#documents">Documents</a></li>
             <li><a href="#hobbies">Hobbies</a></li>
-            <li><a href="#videos">Video Presentations</a></li>
         </ul>
     </nav>
+    
     <main>
         <section id="about">
             <h2>About Me</h2>
-            <div class="profile-container">
-                <img class="profile-image" src="images/kitonyi.jpeg" alt="Brian Kitonyi Mutuku">
-
+            <h3>About Me</h3>
+            <p>Welcome to my portfolio! I am Brian Kitonyi Mutuku, a passionate technology professional with a Bachelor of Business and Information Technology (BBIT) from Dedan Kimathi University of Technology. Since graduating, I've established myself as a dedicated freelance developer, combining my business acumen and technical expertise to deliver impactful solutions for clients across various industries.</p>
+            
+            <p>Currently, I'm enhancing my skill set through Power Learn Academy, where I'm mastering advanced technologies and methodologies to stay at the cutting edge of the industry. This continuous learning approach has enabled me to successfully complete several significant projects.</p>
+            
+            <p>My professional journey is defined by my commitment to excellence, problem-solving mindset, and ability to translate complex technical concepts into practical business solutions. I thrive in collaborative environments while also excelling in self-directed work, making me an adaptable professional ready to tackle diverse challenges.</p>
+            
+            <div class="testimonials">
+                <h3>Testimonials</h3>
+                <div class="carousel">
+                    <div class="carousel-inner" id="carouselInner">
+                        <div class="carousel-item">
+                            <p>"Brian demonstrated exceptional problem-solving skills during our project collaboration. His ability to understand complex requirements and translate them into technical solutions was impressive."</p>
+                            <div class="author">- Project Manager, Tech Solutions Ltd</div>
+                        </div>
+                        <div class="carousel-item">
+                            <p>"The AI recommender system Brian developed for our real estate platform exceeded our expectations. His attention to detail and commitment to quality set him apart."</p>
+                            <div class="author">- CEO, SmartHomes Kenya</div>
+                        </div>
+                        <div class="carousel-item">
+                            <p>"Working with Brian on the school security system was a pleasure. His cybersecurity knowledge and implementation skills were crucial to the project's success."</p>
+                            <div class="author">- Principal, GreenValley Academy</div>
+                        </div>
+                    </div>
+                    <div class="carousel-controls">
+                        <div class="carousel-control" id="prevBtn"><i class="fas fa-chevron-left"></i></div>
+                        <div class="carousel-control" id="nextBtn"><i class="fas fa-chevron-right"></i></div>
+                    </div>
+                    <div class="carousel-indicators" id="carouselIndicators">
+                        <div class="carousel-indicator active"></div>
+                        <div class="carousel-indicator"></div>
+                        <div class="carousel-indicator"></div>
+                    </div>
+                </div>
             </div>
-            <p>Welcome to my portfolio! I am Brian Kitonyi Mutuku, a dedicated student currently pursuing a Bachelor of Business and Information Technology (BBIT) at Dedan Kimathi University of Technology. My journey in this field has equipped me with a solid foundation in both business and technology, and I am passionate about applying this knowledge to real-world problems.</p>
-            <p>Beyond academics, I pride myself on being a proactive learner and a team player. My experiences have shaped me into a responsible individual who is always ready to take on new challenges and contribute effectively to any team or project.</p>
         </section>
 
-        <section id="education">
-            <h2>Education</h2>
-            <h3>Dedan Kimathi University of Technology, NYERI</h3>
-            <p>Bachelor of Business and Information Technology (BBIT), July 2020 – Dec 2024</p>
-            <p>At Dedan Kimathi University, I have engaged in various projects and coursework that bridge the gap between business acumen and technological proficiency. This comprehensive program has provided me with a broad perspective on how technology can drive business innovation.</p>
+        <section id="skills">
+            <h2>Skills</h2>
+            <p>I have developed a diverse skill set that blends technical expertise with soft skills, enabling me to tackle complex challenges and contribute effectively to teams.</p>
+            
+            <div class="skill-grid">
+                <div class="skill-card">
+                    <i class="fas fa-chart-bar"></i>
+                    <h4>Data Analysis</h4>
+                    <p>Microsoft Excel, Power BI</p>
+                </div>
+                
+                <div class="skill-card">
+                    <i class="fas fa-code"></i>
+                    <h4>Web Programming</h4>
+                    <p>HTML, CSS, JavaScript</p>
+                </div>
+                
+                <div class="skill-card">
+                    <i class="fas fa-comments"></i>
+                    <h4>Communication</h4>
+                    <p>Effective verbal and written communication</p>
+                </div>
+                
+                <div class="skill-card">
+                    <i class="fas fa-users"></i>
+                    <h4>Leadership</h4>
+                    <p>Team management and coordination</p>
+                </div>
+                
+                <div class="skill-card">
+                    <i class="fas fa-lightbulb"></i>
+                    <h4>Problem Solving</h4>
+                    <p>Critical thinking and analytical skills</p>
+                </div>
+                
+                <div class="skill-card">
+                    <i class="fas fa-clock"></i>
+                    <h4>Time Management</h4>
+                    <p>Organization and prioritization</p>
+                </div>
+            </div>
+        </section>
 
-            <h3>Mbooni High School, Mbooni</h3>
-            <p>February 2016 – November 2019</p>
-            <p>During my time at Kangema High School, I excelled in subjects crucial for my future career, such as Mathematics and Business Studies. My academic performance reflected a strong grasp of analytical and critical thinking skills.</p>
-            <ul>
-                <li>English: B-(Minus)</li>
-                <li>Kiswahili: B(Plain)</li>
-                <li>Mathematics: B+(Plus)</li>
-                <li>Biology: C+(Plus)</li>
-                <li>Chemistry: B-(Minus)</li>
-                <li>Geography: B+(Plus)</li>
-                <li>History: A -(Minus)</li>
-                <li>Business Studies: B +(Plus)</li>
-            </ul>
-
-            <h3>St. John's Primary School, Kajiado</h3>
-            <p>2008 – November 2015, Marks: 349</p>
-            <p>My primary education laid the groundwork for my academic journey, providing me with essential skills and a strong foundation in various subjects.</p>
+        <section id="projects">
+            <h2>Projects</h2>
+            <p>Here are some of the notable projects I've worked on, showcasing my technical skills and problem-solving abilities:</p>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image" style="background: linear-gradient(135deg, #FF6B6B, #FF8E8E);">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>AI House Recommender Mobile App</h3>
+                        <p>Developed an intelligent mobile application that recommends houses based on user preferences, budget, and location using machine learning algorithms.</p>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image" style="background: linear-gradient(135deg, #45B7D1, #6BD5E1);">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>Intrusion Cyber Detection Model</h3>
+                        <p>Created a sophisticated intrusion detection system using machine learning to identify and prevent cybersecurity threats in real-time.</p>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
+                            <a href="#" class="project-link"><i class="fas fa-file-alt"></i> Report</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image" style="background: linear-gradient(135deg, #98D8C8, #B4EAD9);">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>Home Fetching App for Schools</h3>
+                        <p>Built a mobile application that helps schools manage student pickups, ensuring child safety and efficient dismissal processes.</p>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image" style="background: linear-gradient(135deg, #FFA07A, #FFB499);">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>AI-Powered Chatbot</h3>
+                        <p>Developed a conversational AI chatbot for customer service that reduced response times by 70% and improved customer satisfaction.</p>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <section id="achievements">
             <h2>Achievements</h2>
-            <p>One of my notable achievements is completing the Google Africa Developer Scholarship in November 2021. This accomplishment involved an intensive study program in Cloud Computing, culminating in a certificate that highlights my ability to work with modern cloud technologies.</p>
+            <div class="skill-card">
+                <i class="fas fa-award"></i>
+                <h4>Google Africa Developer Scholarship</h4>
+                <p>November 2021</p>
+                <p>Completed an intensive study program in Cloud Computing, culminating in a certificate that highlights my ability to work with modern cloud technologies.</p>
+            </div>
             <p>This experience has not only expanded my technical skills but also demonstrated my commitment to continuous learning and professional growth.</p>
         </section>
 
         <section id="qualifications">
             <h2>Qualifications</h2>
-            <p>Certificate in Cloud Computing, awarded through the Google Africa Developer Scholarship program. This certification has provided me with a robust understanding of cloud infrastructure and services, preparing me for roles in cloud technology and IT support.</p>
-        </section>
+            
+            <div class="skill-card">
+                <i class="fas fa-certificate"></i>
+                <h4>Certificate in Cloud Computing</h4>
+                <p>Awarded through the Google Africa Developer Scholarship program</p>
+                <p>This certification has provided me with a robust understanding of cloud infrastructure and services, preparing me for roles in cloud technology and IT support.</p>
+            </div>
 
-        <section id="skills">
-            <h2>Skills</h2>
-            <p>I have developed a diverse skill set that blends technical expertise with soft skills, enabling me to tackle complex challenges and contribute effectively to teams. My skills include:</p>
-            <ul>
-                <li>Data Analysis using Microsoft Excel</li>
-                <li>Web Programming (HTML, CSS, JavaScript)</li>
-                <li>Data Science (Power Bi)</li>
-                <li>Effective Communication</li>
-                <li>Leadership and Team Management</li>
-                <li>Critical Thinking and Problem-Solving</li>
-                <li>Time Management and Organization</li>
-                <li>General Computer Literacy</li>
-            </ul>
+            <div class="skill-card">
+                <i class="fas fa-certificate"></i>
+                <h4>Certificate in Power BI</h4>
+                <p>Awarded through the Microsoft Scholarship Program</p>
+                <p>This certification has provided me with a robust understanding of data visualization and business intelligence tools.</p>
+            </div>
+
+            <h3>Education</h3>
+            <div class="education-timeline">
+                <div class="education-item">
+                    <h3>Dedan Kimathi University of Technology, NYERI</h3>
+                    <div class="duration">
+                        <i class="far fa-calendar-alt"></i> July 2020 – Dec 2024
+                    </div>
+                    <p>Bachelor of Business and Information Technology (BBIT)</p>
+                    <p>At Dedan Kimathi University, I have engaged in various projects and coursework that bridge the gap between business acumen and technological proficiency. This comprehensive program has provided me with a broad perspective on how technology can drive business innovation.</p>
+                </div>
+
+                <div class="education-item">
+                    <h3>Mbooni High School, Mbooni</h3>
+                    <div class="duration">
+                        <i class="far fa-calendar-alt"></i> February 2016 – November 2019
+                    </div>
+                    <p>During my time at Mbooni High School, I excelled in subjects crucial for my future career, such as Mathematics and Business Studies. My academic performance reflected a strong grasp of analytical and critical thinking skills.</p>
+                </div>
+            </div>
         </section>
 
         <section id="additional">
             <h2>Additional Information</h2>
-            <p>I am an active member of the Dekut Art Club, where I have honed my artistic talents, particularly in digital and traditional drawing. This club has allowed me to express my creativity and collaborate with like-minded individuals.</p>
+            <div class="skill-card">
+                <i class="fas fa-palette"></i>
+                <h4>Dekut Art Club Member</h4>
+                <p>I am an active member of the Dekut Art Club, where I have honed my artistic talents, particularly in digital and traditional drawing. This club has allowed me to express my creativity and collaborate with like-minded individuals.</p>
+            </div>
             <p>In addition to my artistic pursuits, I have participated in various community service initiatives, reflecting my commitment to giving back to society and making a positive impact.</p>
+        </section>
+
+        <section id="documents">
+            <h2>Documents</h2>
+            
+            <h3>Autobiography</h3>
+            <p>I have written an autobiography that delves into my personal journey, experiences, and the lessons I've learned along the way.</p>
+            <a href="https://docs.google.com/document/d/1_Se_ZwqZrXiKBVvfUON1j7iKRVUyDUe8/edit?usp=drive_web&ouid=114026384910873561169&rtpof=true" class="document-link" target="_blank">
+                <i class="fas fa-file-alt"></i> Read My Autobiography
+            </a>
+            
+            <h3>Autobiography Presentation</h3>
+            <p>This PowerPoint presentation provides a visual and engaging summary of my autobiography:</p>
+            <a href="https://docs.google.com/presentation/d/1O5iLN_j2qfq8hqZ5zDqW6t0pu6Hy3qeu/edit#slide=id.p1" class="document-link" target="_blank">
+                <i class="fas fa-file-powerpoint"></i> View Autobiography Presentation
+            </a>
+            
+            <h3>Curriculum Vitae (CV)</h3>
+            <p>My CVs are available in different languages to suit your needs:</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                <a href="https://docs.google.com/document/d/1j6AnPyfXPPsvENwcgM_fFiInX0UJgRbw/edit" class="document-link" target="_blank">
+                    <i class="fas fa-file-pdf"></i> CV in English
+                </a>
+                <a href="https://docs.google.com/document/d/1nRwqty4Pe0Ws9yvRgt8O6dHYU2ZTk9_H/edit" class="document-link" target="_blank">
+                    <i class="fas fa-file-pdf"></i> CV in Swahili
+                </a>
+                <a href="https://docs.google.com/document/d/1j86aMpy3jW2rQsN0AYaSXiLrrT9qgHJR/edit" class="document-link" target="_blank">
+                    <i class="fas fa-file-pdf"></i> CV in Native Language
+                </a>
+            </div>
         </section>
 
         <section id="hobbies">
             <h2>Hobbies</h2>
-            <p>My hobbies include playing football, reading, and traveling. These activities help me maintain a well-rounded lifestyle, balancing my academic and professional pursuits with relaxation and personal growth.</p>
-        </section>
-
-        <section id="autobiography">
-            <h2>Autobiography</h2>
-            <p>I have written an autobiography that delves into my personal journey, experiences, and the lessons I've learned along the way. You can read it by clicking the link below:</p>
-            <a href="https://docs.google.com/document/d/1_Se_ZwqZrXiKBVvfUON1j7iKRVUyDUe8/edit?usp=drive_web&ouid=114026384910873561169&rtpof=true" download="Brian_Kitonyi_Autobiography.pdf">Download My Autobiography (PDF)</a>
-        </section>
-        
-        <section id="presentation">
-            <h2>Autobiography Presentation</h2>
-            <p>This PowerPoint presentation provides a visual and engaging summary of my autobiography. Feel free to view or download it:</p>
-            <a href="https://docs.google.com/presentation/d/1O5iLN_j2qfq8hqZ5zDqW6t0pu6Hy3qeu/edit#slide=id.p1" download="Brian_Kitonyi_Autobiography_Presentation.pptx">Download Autobiography Presentation (PPTX)</a>
-        </section>
-        
-        <section id="cv">
-            <h2>Curriculum Vitae (CV)</h2>
-            <p>My CVs are available in different languages to suit your needs. You can download them below:</p>
-            <ul>
-                <li><a href="https://docs.google.com/document/d/1j6AnPyfXPPsvENwcgM_fFiInX0UJgRbw/edit" download="Brian_Kitonyi_CV_English.pdf">Download CV in English (PDF)</a></li>
-                <li><a href="https://docs.google.com/document/d/1nRwqty4Pe0Ws9yvRgt8O6dHYU2ZTk9_H/edit" download="Brian_Kitonyi_CV_Swahili.pdf">Download CV in Swahili (PDF)</a></li>
-                <li><a href="https://docs.google.com/document/d/1j86aMpy3jW2rQsN0AYaSXiLrrT9qgHJR/edit" download="Brian_Kitonyi_CV_Native_Language.pdf">Download CV in Native Language (PDF)</a></li>
-            </ul>
-        </section>
-        
-
-        <section id="videos">
-            <h2>Video Presentations</h2>
-
-            <div id="traditional-storytelling">
-                <h3>1. Role of Traditional Storytelling</h3>
-                <h3>Video</h3>
-                <a  href="https://drive.google.com/file/d/11QV9b6arLh76q5-PAkJm52x7aqvtSV53/view?usp=drive_link" view >video</a>
-                <h3>PowerPoint</h3>
-                <a href="https://docs.google.com/presentation/d/1sbpiZu3icEGCGcs9Po1kPskfOx1XtUVQ/edit#slide=id.p1" download>Download PowerPoint</a>
-                <section class="abstract">
-                    <h3>Abstract:</h3>
-                    <a href="https://docs.google.com/document/d/1PBN49GvDybNYcMx2qRwG0RUKvCpE2DhY/edit" download>Download Abstract</a>
-                </section>
+            <div class="skill-grid">
+                <div class="skill-card">
+                    <i class="fas fa-futbol"></i>
+                    <h4>Playing Football</h4>
+                    <p>Enjoy team sports and staying active</p>
+                </div>
+                
+                <div class="skill-card">
+                    <i class="fas fa-book"></i>
+                    <h4>Reading</h4>
+                    <p>Technology, business, and personal development</p>
+                </div>
+                
+                <div class="skill-card">
+                    <i class="fas fa-plane"></i>
+                    <h4>Traveling</h4>
+                    <p>Exploring new cultures and environments</p>
+                </div>
+                
+                <div class="skill-card">
+                    <i class="fas fa-paint-brush"></i>
+                    <h4>Digital Art</h4>
+                    <p>Creating digital illustrations and designs</p>
+                </div>
             </div>
-
-            <div id="climate-change">
-                <h3>2. Addressing Climate Change</h3>
-                <h3>Video</h3>
-                    <a href="https://drive.google.com/file/d/1tBYgGD1rudN0TWgRtBG9VjIGA2-RZ3CJ/view?usp=drive_link"download>video</a>
-                <h3>PowerPoint</h3>
-                <a href="https://docs.google.com/presentation/d/1R8zOKVttcAGjXGTNfeVBeHmnBES0tYxu/edit?rtpof=true" download>Download PowerPoint</a>
-                <section class="abstract">
-                    <h3>Abstract:</h3>
-                    <a href="https://docs.google.com/document/d/1Sg7FSOVrn6A7n7xyB51YYu5diT-qovot/edit" download>Download Abstract</a>
-                </section>
-            </div>
-
-            <div id="blockchain-trust">
-                <h3>3. Revolutionizing Trust: The Power of Blockchain</h3>
-                <h3>Video</h3>
-                    <a href="https://drive.google.com/file/d/17FvwWpwSm-AU4WphrmhZOf-EvtcaG6rK/view?usp=drive_link" download>video</a>
-                    <h3>PowerPoint</h3>
-                <a href="https://docs.google.com/presentation/d/1R8zOKVttcAGjXGTNfeVBeHmnBES0tYxu/edit#slide=id.p1" download>Download PowerPoint</a>
-                <section class="abstract">
-                    <h3>Abstract:</h3>
-                    <a href="https://docs.google.com/document/d/1PBN49GvDybNYcMx2qRwG0RUKvCpE2DhY/edit" download>Download Abstract</a>
-                </section>
-            </div>
+            <p>These activities help me maintain a well-rounded lifestyle, balancing my academic and professional pursuits with relaxation and personal growth.</p>
         </section>
+
+        <a href="#" class="back-to-top" id="backToTop">
+            <i class="fas fa-arrow-up"></i>
+        </a>
     </main>
+    
     <footer>
-        <p>&copy; 2024 Brian Kitonyi Mutuku. All rights reserved.</p>
+        <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>&copy; 2023 Brian Kitonyi Mutuku. All rights reserved.</p>
     </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+        });
+        
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Back to top button
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (navMenu.classList.contains('show')) {
+                        navMenu.classList.remove('show');
+                    }
+                }
+            });
+        });
+
+        // Carousel functionality
+        const carouselInner = document.getElementById('carouselInner');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const indicators = document.querySelectorAll('.carousel-indicator');
+        
+        let currentIndex = 0;
+        const itemCount = document.querySelectorAll('.carousel-item').length;
+        
+        function updateCarousel() {
+            carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
+            
+            // Update indicators
+            indicators.forEach((indicator, index) => {
+                if (index === currentIndex) {
+                    indicator.classList.add('active');
+                } else {
+                    indicator.classList.remove('active');
+                }
+            });
+        }
+        
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % itemCount;
+            updateCarousel();
+        });
+        
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + itemCount) % itemCount;
+            updateCarousel();
+        });
+        
+        // Auto-advance carousel every 5 seconds
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % itemCount;
+            updateCarousel();
+        }, 5000);
+        
+        // Click on indicator to go to specific slide
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                currentIndex = index;
+                updateCarousel();
+            });
+        });
+    </script>
 </body>
 
 </html>
